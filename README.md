@@ -1,6 +1,6 @@
 # Company Directory Flutter App
 
-A Flutter-based mobile and desktop app for managing company information.  
+A Flutter-based mobile app for managing company information.  
 This project includes user authentication, company listings, detailed views, and feedback functionality.
 
 ## Features
