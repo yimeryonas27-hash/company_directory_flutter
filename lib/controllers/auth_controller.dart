@@ -4,29 +4,29 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthController extends GetxController {
-  // ================= CONTROLLERS =================
+  // CONTROLLERS 
   final nameCtrl = TextEditingController();
   final emailCtrl = TextEditingController();
   final passwordCtrl = TextEditingController();
 
-  // ================= RX VARIABLES =================
+
   var isLoading = false.obs;
   var isLoggedIn = false.obs;
   var currentUserEmail = ''.obs;
 
-  // ================= STORAGE KEYS =================
+
   static const String usersKey = 'users';
   static const String loginKey = 'isLoggedIn';
   static const String currentUserKey = 'currentUserEmail';
 
-  // ================= INIT =================
+
   @override
   void onInit() {
     super.onInit();
     restoreLogin();
   }
 
-  // ================= RESTORE LOGIN =================
+  
   Future<void> restoreLogin() async {
     final prefs = await SharedPreferences.getInstance();
     isLoggedIn.value = prefs.getBool(loginKey) ?? false;
@@ -37,7 +37,7 @@ class AuthController extends GetxController {
     }
   }
 
-  // ================= SIGN UP =================
+
   Future<void> signUp() async {
     if (nameCtrl.text.trim().isEmpty ||
         emailCtrl.text.trim().isEmpty ||
@@ -90,7 +90,7 @@ class AuthController extends GetxController {
     Get.offAllNamed('/login');
   }
 
-  // ================= LOGIN =================
+ 
   Future<void> login() async {
     final email = emailCtrl.text.trim();
     final password = passwordCtrl.text;
@@ -127,7 +127,7 @@ class AuthController extends GetxController {
     }
   }
 
-  // ================= LOGOUT =================
+ 
   Future<void> logout() async {
     final prefs = await SharedPreferences.getInstance();
 
@@ -140,7 +140,7 @@ class AuthController extends GetxController {
     Get.offAllNamed('/login');
   }
 
-  // ================= CURRENT USER =================
+  
   Future<Map<String, dynamic>?> getCurrentUserData() async {
     final prefs = await SharedPreferences.getInstance();
     List users = jsonDecode(prefs.getString(usersKey) ?? '[]');
@@ -151,7 +151,7 @@ class AuthController extends GetxController {
     );
   }
 
-  // ================= UPDATE USER =================
+
   Future<void> updateCurrentUser(Map<String, dynamic> updatedUser) async {
     final prefs = await SharedPreferences.getInstance();
     List users = jsonDecode(prefs.getString(usersKey) ?? '[]');
@@ -165,7 +165,7 @@ class AuthController extends GetxController {
     }
   }
 
-  // ================= HELPERS =================
+ 
   void clearFields() {
     nameCtrl.clear();
     emailCtrl.clear();
