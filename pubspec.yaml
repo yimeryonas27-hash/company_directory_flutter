@@ -1,0 +1,30 @@
+name: company_directory_app
+description: A Flutter Company Directory Application
+publish_to: 'none' # Remove this line if you want to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management & navigation
+  get: ^4.6.6
+
+  # API calls
+  http: ^1.2.0
+
+  # Local storage
+  shared_preferences: ^2.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
